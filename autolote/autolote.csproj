@@ -188,6 +188,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502232043479_InitialCreate.cs" />
+    <Compile Include="Migrations\201502232043479_InitialCreate.Designer.cs">
+      <DependentUpon>201502232043479_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\DBContext.cs" />
     <Compile Include="Models\Tipos.cs" />
@@ -309,12 +314,18 @@
     <Content Include="Views\Tipos\Create.cshtml" />
     <Content Include="Views\Tipos\Edit.cshtml" />
     <Content Include="Views\Tipos\Delete.cshtml" />
+    <Content Include="Views\Home\Inicio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201502232043479_InitialCreate.resx">
+      <DependentUpon>201502232043479_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -22,6 +22,17 @@ namespace autolote.Controllers
             return View();
         }
 
+        public ActionResult Inicio()
+        {
+            ViewBag.Message = "Pagina de inicio";
+            return View();     
+      
+        }
+
+
+
+
+
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
