@@ -1,0 +1,29 @@
+﻿@model autolote.Models.Marcas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Marcas</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Descripcion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descripcion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UrlImagen)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UrlImagen)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.MarcaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

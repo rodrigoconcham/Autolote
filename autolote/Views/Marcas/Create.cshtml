@@ -1,0 +1,50 @@
+﻿@model autolote.Models.Marcas
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create","Marcas",  FormMethod.Post,
+   new
+   {
+
+         id ="MarcasFormID",
+         enctype ="multipart/form-data"
+
+   }))
+
+
+   {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Marcas</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Descripcion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Descripcion)
+            @Html.ValidationMessageFor(model => model.Descripcion)
+        </div>
+
+        <div>
+              <input type="file"  name ="ImagenSubida"/>
+        </div>
+
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
