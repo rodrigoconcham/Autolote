@@ -15,7 +15,7 @@
             @Html.DisplayNameFor(model => model.Descripcion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UrlImagen)
+             @Html.DisplayNameFor(model => model.UrlImagen)
         </th>
         <th></th>
     </tr>
@@ -26,7 +26,12 @@
             @Html.DisplayFor(modelItem => item.Descripcion)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UrlImagen)
+           
+           @if (item.UrlImagen != null)
+            {
+            <img src="@Url.Content(item.UrlImagen)" alt="@item.MarcaId" />
+            }
+
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.MarcaId }) |

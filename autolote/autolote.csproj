@@ -327,6 +327,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Imagenes\Mediana\" />
+    <Folder Include="Content\Imagenes\Miniatura\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

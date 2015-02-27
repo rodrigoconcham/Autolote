@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using autolote.Models;
+using autolote.Helper;
 
 namespace autolote.Controllers
 {
@@ -51,6 +52,13 @@ namespace autolote.Controllers
         {
             if (ModelState.IsValid)
             {
+                var guardarImagen = new GuardarImagen();
+
+                string fileName = Guid.NewGuid().ToString();
+
+                marcas.UrlImagen = guardarImagen.ResizeAndSave(fileName, marcas.ImagenSubida.InputStream, Tamanos.Miniatura, false);
+                
+                
                 db.Marcas.Add(marcas);
                 db.SaveChanges();
                 return RedirectToAction("Index");
