@@ -1,0 +1,92 @@
+﻿@model autolote.Controllers.Automovil
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Automovil</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ModeloId, "Modelo")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ModeloId", String.Empty)
+            @Html.ValidationMessageFor(model => model.ModeloId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TiposId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TiposId)
+            @Html.ValidationMessageFor(model => model.TiposId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TieneAireAcondicionado)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TieneAireAcondicionado)
+            @Html.ValidationMessageFor(model => model.TieneAireAcondicionado)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Comentarios)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Comentarios)
+            @Html.ValidationMessageFor(model => model.Comentarios)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Anio)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Anio)
+            @Html.ValidationMessageFor(model => model.Anio)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Color)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Color)
+            @Html.ValidationMessageFor(model => model.Color)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FechaPublicacion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FechaPublicacion)
+            @Html.ValidationMessageFor(model => model.FechaPublicacion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

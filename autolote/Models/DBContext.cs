@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using autolote.Controllers;
 
 namespace autolote.Models
 {
@@ -20,5 +21,9 @@ namespace autolote.Models
         public DbSet<Tipos> Tipos { get; set; }
 
         public DbSet<Marcas> Marcas { get; set; }
+
+        public DbSet<Modelos> Modelos { get; set; }
+
+        public DbSet<Automovil> Automovils { get; set; }
     }
 }
