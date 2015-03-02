@@ -1,0 +1,71 @@
+﻿@model autolote.Controllers.Automovil
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Automovil</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Modelo.Descripcion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Modelo.Descripcion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TiposId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TiposId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TieneAireAcondicionado)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TieneAireAcondicionado)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Comentarios)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Comentarios)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Anio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Anio)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Color)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Color)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FechaPublicacion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FechaPublicacion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
