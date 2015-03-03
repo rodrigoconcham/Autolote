@@ -6,7 +6,15 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Create","AutoMovil", FormMethod.Post, 
+new
+
+{
+   id ="MarcaModeloFormID",
+   enctype ="multipart/form-data"
+   
+
+} ))
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -77,10 +85,14 @@
             @Html.ValidationMessageFor(model => model.Email)
         </div>
 
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
+        <a href="#" id ="add"> Agregar Imagen </a>
+        <div id ="divAutomovilImagenes">
+ </fieldset>
+    
+    <p>
+        <input type="submit" value="Create" />
+    </p>
+   
 }
 
 <div>
