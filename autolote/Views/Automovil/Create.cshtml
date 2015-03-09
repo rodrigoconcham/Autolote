@@ -15,7 +15,8 @@ new
    
 
 } ))
-    @Html.AntiForgeryToken()
+ 
+ {
     @Html.ValidationSummary(true)
 
     <fieldset>
@@ -100,5 +101,11 @@ new
 </div>
 
 @section Scripts {
+    @Scripts.Render("~/Content/themes/base/css")
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
 }
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/Autolote-MarcasModelos.js"></script>
+<script src="~/Scripts/Autolote-DatePicker.js"></script>
+<script src="~/Scripts/Autolote-Imagenes.js"></script>
