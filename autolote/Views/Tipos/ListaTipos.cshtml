@@ -1,0 +1,4 @@
+﻿@model IEnumerable<autolote.Models.Tipos>
+
+@Html.DropDownList("TipoId", new SelectList(Model,"TipoId","Descripcion"),
+"Seleccione un Tipo", new {id ="TipoId"})

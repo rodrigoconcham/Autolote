@@ -339,6 +339,7 @@
     <Content Include="Views\Automovil\Create.cshtml" />
     <Content Include="Views\Automovil\Edit.cshtml" />
     <Content Include="Views\Automovil\Delete.cshtml" />
+    <Content Include="Views\Tipos\ListaTipos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
