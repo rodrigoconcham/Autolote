@@ -29,29 +29,29 @@ new
 
     <div class="editor-field">
            
-            @{Html.RenderAction("ListaTipos","Tipos");}
+    @{Html.RenderAction("ListaTipos","Tipos");}
 
-            @Html.ValidationMessageFor(model => model.TiposId)
+    @Html.ValidationMessageFor(model => model.TiposId)
     </div>
 
 
-  
 
+     <div class="editor-label">
+            @Html.LabelFor(model => model.Modelo.Marcas.MarcaId)
+     </div>
 
+     <div class="editor-label">
+    
+        @Html.DropDownList("MarcasId", new SelectList(new string [] {"Seleccione una marca"}))
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ModeloId, "Modelo")
-        </div>
-
-
-        <div class="editor-field">
-            @Html.DropDownList("ModeloId", String.Empty)
-            @Html.ValidationMessageFor(model => model.ModeloId)
-        </div>
-
-       
-
-        
+      <div id="ModelosDivID">
+         <label for ="Modelos">Modelos</label>
+         <select id ="ModelosId" name ="ModelosId">
+             <option selected> Seleccione un modelo </option>
+         </select>
+        </div>       
+    </div>
+     
 
         <div class="editor-label">
             @Html.LabelFor(model => model.TieneAireAcondicionado)
