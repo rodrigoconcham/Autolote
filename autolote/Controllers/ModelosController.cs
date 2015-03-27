@@ -127,6 +127,8 @@ namespace autolote.Controllers
 
 
         public ActionResult ListaModelosPorMarca(int id)
+
+       
         {
             var modelos = db.Modelos.Where(r => r.MarcaId == id);
  
