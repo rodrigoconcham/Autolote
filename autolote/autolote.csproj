@@ -264,6 +264,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\Autolote-DatePicker.js" />
     <Content Include="Scripts\Autolote-Imagenes.js" />
     <Content Include="Scripts\Autolote-MarcasModelos.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />

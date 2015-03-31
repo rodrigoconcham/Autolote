@@ -73,8 +73,23 @@ new
             @Html.LabelFor(model => model.Anio)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Anio)
-            @Html.ValidationMessageFor(model => model.Anio)
+         @{
+           Model.Anio =DateTime.Now.Year; 
+
+           var anios = new List<string>();
+           
+           for (int i= DateTime.Now.Year; i > 1950; i-- )
+           {
+          
+             anios.Add(i.ToString());
+           }
+
+        }
+
+        @Html.DropDownListFor(r=> Model.Anio, new SelectList(anios))
+        
+        @Html.ValidationMessageFor(model => model.Anio)
+
         </div>
 
         <div class="editor-label">

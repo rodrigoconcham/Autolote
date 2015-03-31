@@ -40,8 +40,16 @@ namespace autolote.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.ModeloId = new SelectList(db.Modelos, "ModeloId", "Descripcion");
-            return View();
+            
+            var automovil = new Automovil()
+
+            {
+                FechaPublicacion =DateTime.Now
+
+            };
+
+            return View(automovil); 
+
         }
 
         //

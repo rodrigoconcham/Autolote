@@ -42,13 +42,13 @@
         $.each(data, function (i, marca) {
 
             if (marca.selected) {
-                items += "<option value='" + marca.id + "' selected>" + marca.Marca + "</option>";
+                items += "<option value='" + marca.Id + "' selected>" + marca.Marca + "</option>";
                 MostrarModelosPorMarca();
             }
 
             else {
 
-                items += "<option value='" + marca.id + "'>" + marca.Marca + "</option>";
+                items += "<option value='" + marca.Id + "'>" + marca.Marca + "</option>";
 
 
             }
