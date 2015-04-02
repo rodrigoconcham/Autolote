@@ -267,6 +267,7 @@
     <Content Include="Scripts\Autolote-DatePicker.js" />
     <Content Include="Scripts\Autolote-Imagenes.js" />
     <Content Include="Scripts\Autolote-MarcasModelos.js" />
+    <Content Include="Scripts\Autolote-Tipos.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

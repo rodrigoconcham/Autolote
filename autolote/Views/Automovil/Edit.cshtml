@@ -25,52 +25,99 @@ new
 
         @Html.HiddenFor(model => model.Id)
 
+        
         <div class="editor-label">
-            @Html.LabelFor(model => model.ModeloId, "Modelo")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("ModeloId", String.Empty)
-            @Html.ValidationMessageFor(model => model.ModeloId)
+            @Html.LabelFor(model => model.tipos.Descripcion)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.TiposId)
-        </div>
+
         <div class="editor-field">
-            @Html.EditorFor(model => model.TiposId)
-            @Html.ValidationMessageFor(model => model.TiposId)
+            @Html.DropDownList("TipoId", new SelectList(new string [] {""}))   
         </div>
 
+        
         <div class="editor-label">
-            @Html.LabelFor(model => model.TieneAireAcondicionado)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.TieneAireAcondicionado)
-            @Html.ValidationMessageFor(model => model.TieneAireAcondicionado)
+            @Html.LabelFor(model => model.Modelo.Marcas.Descripcion)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Comentarios)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Comentarios)
-            @Html.ValidationMessageFor(model => model.Comentarios)
-        </div>
+
+       <div class="editor-field">
+
+            @Html.DropDownList("MarcasId", new SelectList(new string [] {"Seleccione una marca"}))
+
+	       <div id="ModelosDivID">
+	         <label for ="Modelos">Modelos</label>
+	         <select id ="ModelosId" name ="ModelosId">
+	             <option selected> Seleccione un modelo </option>
+	         </select>
+	        </div>  
+           
+       </div>
+        
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Anio)
         </div>
+
+
+        
         <div class="editor-field">
-            @Html.EditorFor(model => model.Anio)
-            @Html.ValidationMessageFor(model => model.Anio)
+         @{
+           Model.Anio =DateTime.Now.Year; 
+
+           var anios = new List<string>();
+           
+           for (int i= DateTime.Now.Year; i > 1950; i-- )
+           {
+          
+             anios.Add(i.ToString());
+           }
+
+        }
+
+        @Html.DropDownListFor(r=> Model.Anio, new SelectList(anios))
+        
+        @Html.ValidationMessageFor(model => model.Anio)
+
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Color)
         </div>
+
         <div class="editor-field">
             @Html.EditorFor(model => model.Color)
             @Html.ValidationMessageFor(model => model.Color)
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TieneAireAcondicionado)
+        </div>
+
+
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TieneAireAcondicionado)
+            @Html.ValidationMessageFor(model => model.TieneAireAcondicionado)
+        </div>
+
+        
+         <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Email, new {type ="email"})
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Comentarios)
+        </div>
+
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Comentarios)
+            @Html.ValidationMessageFor(model => model.Comentarios)
         </div>
 
         <div class="editor-label">
@@ -80,15 +127,21 @@ new
             @Html.EditorFor(model => model.FechaPublicacion)
             @Html.ValidationMessageFor(model => model.FechaPublicacion)
         </div>
+
+      
+        
+        
+
+        
     <a href="#" id ="add"> Agregar Imagen </a>
 
     <div id ="divAutomovilImagenes">
-
-    @if (Model.AutoMovilImagenes  != null)
+    
+    @if (Model.AutomovilImagenes  != null)
     
     {
 
-     foreach (var imagen in Model.AutoMovilImagenes)
+     foreach (var imagen in Model.AutomovilImagenes)
 
      {
 	     <div class="editorRow">
@@ -115,7 +168,7 @@ new
   @Scripts.Render("~/bundles/jqueyui")
   @Scripts.Render("~/bundles/jqueryval")
 }
-<script src="~Scripts/jquery-1.7.1.min.js"></script>
+<script src="~Scripts/jquery-1.8.2.min.js"></script>
 <script src="~Scripts/Autolote-Tipos.js"></script>
 <script src="~Scripts/Autolote-MarcasModelos.js"></script>
 <script src="~Scripts/Autolote-Imagenes.js"></script>

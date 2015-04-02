@@ -18,16 +18,35 @@ namespace autolote.Controllers
 
         public ActionResult Index()
         {
-            var automovils = db.Automovils.Include(a => a.Modelo);
-            return View(automovils.ToList());
+
+            return View(db.Automovils
+                .Include("Modelo")
+                .Include("Modelo.Marcas")
+                .Include("tipos")
+                .Include("AutomovilImagenes")
+                .ToList());
+
         }
+
+
+
+
+
+
 
         //
         // GET: /Automovil/Details/5
 
         public ActionResult Details(int id = 0)
         {
-            Automovil automovil = db.Automovils.Find(id);
+            Automovil automovil = db.Automovils
+            .Include("Modelo")
+            .Include("Modelo.Marcas")
+            .Include("tipos")
+            .Include("AutomovilImagenes")
+            .FirstOrDefault(r => r.Id == id);
+
+
             if (automovil == null)
             {
                 return HttpNotFound();
@@ -40,15 +59,15 @@ namespace autolote.Controllers
 
         public ActionResult Create()
         {
-            
+
             var automovil = new Automovil()
 
             {
-                FechaPublicacion =DateTime.Now
+                FechaPublicacion = DateTime.Now
 
             };
 
-            return View(automovil); 
+            return View(automovil);
 
         }
 
@@ -132,5 +151,58 @@ namespace autolote.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
+
+        public ActionResult ListaTiposPorAutomovil(int id)
+        {
+            var tipos = db.Tipos;
+            var autoMovil = db.Automovils.FirstOrDefault(r => r.Id == id);
+
+            if (autoMovil != null)
+            {
+                var query = (from t in db.Tipos
+                             join a in db.Automovils.Where(r => r.Id == id)
+                             on t.TipoId equals a.TiposId into joined
+                             from a in joined.DefaultIfEmpty()
+                             select new
+
+                             {
+                                 Id = t.TipoId,
+                                 Tipo = t.Descripcion,
+                                 selected = a != null
+
+
+                             });
+
+                return Json(query, JsonRequestBehavior.AllowGet);
+
+            }
+
+            else
+            {
+
+                var query = (from t in db.Tipos
+
+                             select new
+
+                             {
+                                 Id = t.TipoId,
+                                 Tipo = t.Descripcion,
+                                 selected = false
+
+
+
+                             });
+
+
+
+                return Json(query, JsonRequestBehavior.AllowGet);
+            }
+
+
+
+
+        }
+
     }
+    
 }
