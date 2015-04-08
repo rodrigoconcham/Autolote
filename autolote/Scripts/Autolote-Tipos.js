@@ -8,7 +8,7 @@
     }
 
 
-    //Evento change del dropdownlist de marca
+    //llenar la lista de marcas
    
             $.getJSON('/Automovil/ListaTiposPorAutomovil/' + id, function (data) {
 
@@ -16,14 +16,14 @@
                  $.each(data, function (i, item) {
                      
                      if (item.selected) {
-                         items += "<option value='" + item.Id + "' selected>" + item.tipos + "</option>";
-                         
+                         items += "<option value='" + item.Id + "' selected>" + item.Tipo + "</option>";
+                      
                      }
 
                      else {
 
-                         items += "<option value='" + item.Id + "'>" + item.tipos + "</option>";
-
+                         items += "<option value='" + item.Id + "'>" + item.Tipo + "</option>";
+                
 
                      }
 

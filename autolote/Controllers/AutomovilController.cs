@@ -28,29 +28,17 @@ namespace autolote.Controllers
 
         }
 
-
-
-
-
-
-
         //
         // GET: /Automovil/Details/5
 
         public ActionResult Details(int id = 0)
         {
-            Automovil automovil = db.Automovils
-            .Include("Modelo")
-            .Include("Modelo.Marcas")
-            .Include("tipos")
-            .Include("AutomovilImagenes")
-            .FirstOrDefault(r => r.Id == id);
-
-
+            Automovil automovil = db.Automovils.Find(id);
             if (automovil == null)
             {
                 return HttpNotFound();
             }
+  
             return View(automovil);
         }
 
@@ -69,7 +57,7 @@ namespace autolote.Controllers
 
             return View(automovil);
 
-        }
+        } 
 
         //
         // POST: /Automovil/Create
@@ -94,13 +82,23 @@ namespace autolote.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            Automovil automovil = db.Automovils.Find(id);
+
+            Automovil automovil = db.Automovils
+            .Include("Modelo")
+            .Include("Modelo.Marcas")
+            .Include("tipos")
+            .Include("AutomovilImagenes")
+            .FirstOrDefault(r => r.Id == id);
+
+
             if (automovil == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ModeloId = new SelectList(db.Modelos, "ModeloId", "Descripcion", automovil.ModeloId);
             return View(automovil);
+
+
+         
         }
 
         //
