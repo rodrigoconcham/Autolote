@@ -16,9 +16,9 @@ $("a.deleteRow").live("click", function () {
 
     var gui = GetRandomGUI();
     var htm = '<div class="editorRow">';
-    htm += '<input type ="hidden" autoComplete ="off" name ="AutomovilImagenes.index" value ="d1"/>';
-    htm += '<input type ="hidden" autoComplete ="off" name ="AutomovilImagenes[' + gui + '].imagenSubida" value ="d2"/>';
-    htm += '<input type ="hidden" autoComplete ="off" name ="AutomovilImagenes[' + gui + '].index" value ="d3"/>';
+    htm += '<input type ="hidden" autoComplete ="off" name ="AutomovilImagenes.index" value ="' + gui +'"/>';
+    htm += '<input type ="hidden" autoComplete ="off" name ="AutomovilImagenes[' + gui + '].Id" value ="' + id+  '"/>';
+    htm += '<input type ="hidden" autoComplete ="off" name ="AutomovilImagenes[' + gui + '].ImagenEliminada" value ="true"/></div>';
     $('#divAutomovilImagenes').append(htm);
 
     return false;
@@ -30,8 +30,8 @@ $("#add").live("click", function () {
 
     var gui = GetRandomGUI();
     var htm = '<div class="editorRow">';
-    htm += '<input type ="hidden" autoComplete ="off" name ="AutomovilImagenes.index" value ="d4"/>';
-    htm += '<Imagen: <input type ="file" name ="AutomovilImagenes[' + gui + '].imagenSubida"/ value="d5">';
+    htm += '<input type ="hidden" autoComplete ="off" name ="AutomovilImagenes.index" value ="' + gui + '"/>';
+    htm += '<Imagen: <input type ="file" name ="AutomovilImagenes[' + gui + '].imagenSubida" value ="true"/></div>';
     htm += '<a href ="#" class="deleteRow">Eliminar</a></div>';
     $('#divAutomovilImagenes').append(htm);
 

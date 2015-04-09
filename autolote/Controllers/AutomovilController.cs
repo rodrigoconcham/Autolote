@@ -159,7 +159,7 @@ namespace autolote.Controllers
             {
                 var query = (from t in db.Tipos
                              join a in db.Automovils.Where(r => r.Id == id)
-                             on t.TipoId equals a.TiposId into joined
+                             on t.TipoId equals a.TiposId  into joined
                              from a in joined.DefaultIfEmpty()
                              select new
 
@@ -200,6 +200,43 @@ namespace autolote.Controllers
 
 
         }
+
+        public ActionResult ListaModelosPorAutomovil(int id)
+        {
+            var autoMovil = db.Automovils
+                .Include("Modelo")
+                .Include("Modelo.Marcas")
+                .FirstOrDefault(r => r.Id == id);
+
+            if (autoMovil != null)
+                
+            {
+
+                var marcaId = autoMovil.Modelo.MarcaId;
+
+                var query = (from m in db.Modelos.Where(r => r.MarcaId == marcaId)
+                             join a in db.Automovils.Where(r => r.Id == id)
+                             on m.ModeloId equals a.Modelo.ModeloId into joined
+                             from a in joined.DefaultIfEmpty()
+                             select new
+
+                             {
+                                 Id = m.ModeloId,
+                                 Modelo = m.Descripcion,
+                                 selected = a != null
+
+
+                             });
+
+                return Json(query, JsonRequestBehavior.AllowGet);
+
+            }
+            
+        return RedirectToAction("Index");
+        
+      }
+
+
 
     }
     

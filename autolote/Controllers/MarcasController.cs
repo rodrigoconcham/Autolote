@@ -57,8 +57,8 @@ namespace autolote.Controllers
                 string fileName = Guid.NewGuid().ToString();
 
                 marcas.UrlImagen = guardarImagen.ResizeAndSave(fileName, marcas.ImagenSubida.InputStream, Tamanos.Miniatura, false);
-                
-                
+
+
                 db.Marcas.Add(marcas);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -131,27 +131,50 @@ namespace autolote.Controllers
 
         public ActionResult ListaMarcas(int id)
         {
-           
-            
+
+            var marcas = db.Marcas;
+            var automovil = db.Automovils.FirstOrDefault(r => r.Id == id);
+
+            if (automovil != null)
+            {
+
                 var query = (from m in db.Marcas
-
+                             join a in db.Automovils.Where(r => r.Id == id)
+                             on m.MarcaId equals a.Modelo.Marcas.MarcaId into joined
+                             from a in joined.DefaultIfEmpty()
                              select new
+                             {
+                                 Id = m.MarcaId,
+                                 Marca = m.Descripcion,
+                                 selected = a != null
 
+                             });
+
+                return Json(query, JsonRequestBehavior.AllowGet);
+
+            }
+            else
+            {
+                var query = (from m in db.Marcas
+                             select new
                              {
                                  Id = m.MarcaId,
                                  Marca = m.Descripcion,
                                  selected = false
 
-                             });
 
+                             });
 
                 return Json(query, JsonRequestBehavior.AllowGet);
 
 
+
             }
 
-            
         }
-    
-    
+
+
+
+
+    }
 }

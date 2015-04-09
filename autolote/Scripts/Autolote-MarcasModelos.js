@@ -73,12 +73,12 @@
 
                 if (modelo.selected) {
                     items += "<option value='" + modelo.Id + "' selected>" + modelo.Modelo + "</option>";
-                    MostrarModelosPorMarca();
+              
                 }
 
                 else {
 
-                    items += "<option value='" + modelo.Id + "'>" + modelo.Modelo + "</option>";
+                    items += "<option value='" + modelo.Id + "'>" + modelo.Model + "</option>";
 
 
                 }
