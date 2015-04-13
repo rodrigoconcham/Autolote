@@ -13,6 +13,7 @@ namespace autolote.Models
         [Key]
         public int MarcaId { get; set; }
          [Required(ErrorMessage = "Ingrese la descripción de la marca")]
+         [Display(Name = "Marca")] 
         public string Descripcion { get; set; }
         public string UrlImagen { get; set; }
         public  virtual ICollection<Modelos> ListaModelos { get; set; }

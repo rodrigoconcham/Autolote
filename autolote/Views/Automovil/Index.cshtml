@@ -9,61 +9,62 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table>
+<table style="border-collapse:separate;border-spacing:10px">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tipos.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modelo.Marcas.Descripcion)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Modelo.Descripcion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TiposId)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.TieneAireAcondicionado)
+        </th>
+           <th>
+            @Html.DisplayNameFor(model => model.FechaPublicacion)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Comentarios)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Anio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Color)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaPublicacion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
+           Imagen
+        </th>   
+
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model) 
+{
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Modelo.Descripcion)
+            @Html.DisplayFor(modelItem => item.tipos.Descripcion)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TiposId)
+            @Html.DisplayFor(modelItem => item.Modelo.Marcas.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modelo.Descripcion)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TieneAireAcondicionado)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Comentarios)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Anio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Color)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.FechaPublicacion)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Email)
+            @Html.DisplayFor(modelItem => item.Comentarios)
         </td>
+      
+        <td>
+             @if (item.AutomovilImagenes.Any())
+            {
+            <img src="@Url.Content(item.AutomovilImagenes.First().UrlImagenMiniatura)" alt="@item.AutomovilImagenes.First().Id" />
+            }
+        </td>
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |

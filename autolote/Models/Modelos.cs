@@ -11,6 +11,7 @@ namespace autolote.Models
         [Key]
         public int ModeloId { get; set; }
          [Required(ErrorMessage = "Ingrese la descripción del modelo")]
+         [Display(Name = "Modelo")] 
         public string Descripcion { get; set; }
         public int MarcaId { get; set; }
         public Marcas Marcas { get; set; }

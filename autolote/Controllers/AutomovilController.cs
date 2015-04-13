@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using autolote.Models;
+using autolote.Helper;
 
 namespace autolote.Controllers
 {
@@ -80,43 +81,77 @@ namespace autolote.Controllers
         //
         // GET: /Automovil/Edit/5
 
-        public ActionResult Edit(int id = 0)
+        public ActionResult Edit(Automovil automovil)
+
+        {
+        if (ModelState.IsValid) 
         {
 
-            Automovil automovil = db.Automovils
+            var automovilOriginal = db.Automovils
             .Include("Modelo")
             .Include("Modelo.Marcas")
             .Include("tipos")
             .Include("AutomovilImagenes")
-            .FirstOrDefault(r => r.Id == id);
+            .FirstOrDefault(r => r.Id == automovil.Id);
+
+            var autoMovilEntry = db.Entry(automovilOriginal);
+            autoMovilEntry.CurrentValues.SetValues(automovil);
 
 
-            if (automovil == null)
+            if (automovil.AutomovilImagenes !=  null && automovil.AutomovilImagenes.Any())
+
             {
-                return HttpNotFound();
-            }
-            return View(automovil);
+                foreach (var imagen in automovil.AutomovilImagenes)
+                {
 
+                  if (imagen.ImagenEliminada)
 
+                  {
+
+                   var imagenOriginal = automovilOriginal.AutomovilImagenes.FirstOrDefault(r => r.Id == imagen.Id);
          
+                   automovilOriginal.AutomovilImagenes.Remove(imagenOriginal);
+                     
+                  }
+
+                  else
+
+                  {
+
+                      string fileName = Guid.NewGuid().ToString();
+
+
+                      imagen.UrlImagenMiniatura= new  GuardarImagen().ResizeAndSave(fileName,null , Tamanos.Miniatura, false);
+                      imagen.UrlImagenMediana =  new  GuardarImagen().ResizeAndSave(fileName,null, Tamanos.Miniatura, false);
+                         
+
+                      automovilOriginal.AutomovilImagenes.Add(new AutomovilImagenes()
+                      {
+
+                          UrlImagenMiniatura = imagen.UrlImagenMiniatura,
+                          UrlImagenMediana  = imagen.UrlImagenMediana
+
+                   });
+
+                }
+
+               }
+
+             }
+        
+             db.SaveChanges();
+             return RedirectToAction("Index"); 
+    
+           }
+        
+            return View(automovil);
+                 
         }
 
         //
         // POST: /Automovil/Edit/5
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(Automovil automovil)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(automovil).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.ModeloId = new SelectList(db.Modelos, "ModeloId", "Descripcion", automovil.ModeloId);
-            return View(automovil);
-        }
+        
 
         //
         // GET: /Automovil/Delete/5

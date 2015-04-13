@@ -10,6 +10,7 @@ namespace autolote.Models
     {
         [Key]
         public int TipoId { get; set; }
+        [Display(Name="Tipo")] 
         [Required(ErrorMessage="Ingrese la descripción")]
         public string Descripcion { get; set;}
         public string Comentario { get; set;} 
