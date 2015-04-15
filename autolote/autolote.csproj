@@ -344,6 +344,8 @@
     <Content Include="Views\Automovil\Delete.cshtml" />
     <Content Include="Views\Tipos\ListaTipos.cshtml" />
     <Content Include="Views\Home\Administracion.cshtml" />
+    <Content Include="Views\Shared\_FiltrosdeBusqueda.cshtml" />
+    <Content Include="Views\Tipos\ListaTiposBusqueda.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,76 @@
+﻿@using (Html.BeginForm("Index","Home"))
+{
+<table>
+  <tr>
+    <td>
+       <table>
+          <tr>
+             <td>Tipo
+             </td>
+             <td>
+             @{Html.RenderAction("ListaTiposBusqueda","Tipos");}
+             </td>
+          </tr>
+          <tr>
+            <td>Marca
+            </td>
+            <td>
+               @Html.DropDownList("MarcasId", new SelectList(new string [] {"Seleccione una marca"}))
+            </td>
+          </tr>
+          <tr>
+            <td>Modelo
+            </td>
+            <td>
+             <select id ="ModelosId" name ="ModelosId">
+                <option selected> Seleccione un modelo </option>
+             </select>
+            </td>
+          </tr>
+          </table>
+        </td>    
+     <td>
+         <table>
+           <tr>
+             <td>
+             A&ntilde;o Inicial
+             </td>
+         <td>
+           @{
+        
+
+           var anios = new List<string>();
+           
+           for (int i= DateTime.Now.Year; i > 1950; i-- )
+           {
+          
+             anios.Add(i.ToString());
+           }
+
+        }
+
+        @Html.DropDownList("AnioInicio", new SelectList(anios,(DateTime.Now.Year)))
+         </td>
+       </tr>
+
+        <tr>
+             <td>
+             A&ntilde;o Final
+             </td>
+            <td>
+              @Html.DropDownList("AnioFin", new SelectList(anios,(DateTime.Now.Year)))
+          </td>
+        </tr>
+       </table>
+      </td>
+      <td>
+        <input type="submit" value="Buscar"/>
+      </td>
+     </tr>
+    </table>
+   
+
+}
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/Autolote-Tipos.js"></script>
+<script src="~/Scripts/Autolote-MarcasModelos.js"></script>

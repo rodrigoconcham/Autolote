@@ -120,7 +120,24 @@ namespace autolote.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult ListaTipos()
+
+         public ActionResult ListaTipos()
+        {
+
+            return ObtenerListadeTipos();
+        }
+
+         
+        public ActionResult ListaTiposBusqueda()
+         {
+
+             return ObtenerListadeTipos();
+         }
+
+
+
+
+        public ActionResult ObtenerListadeTipos()
         {
             var listaTipos = db.Tipos;
 

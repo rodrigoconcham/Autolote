@@ -271,6 +271,25 @@ namespace autolote.Controllers
         
       }
 
+        public ActionResult Detalle(int id)
+        {
+
+
+            var automovil = db.Automovils
+           // AutoMovil automovil = db.Automovils
+            .Include("Modelo")
+            .Include("Modelo.Marcas")
+            .Include("tipos")
+            .Include("AutomovilImagenes")
+            .FirstOrDefault(r => r.Id == id);
+
+
+            if (automovil == null)
+            {
+                return HttpNotFound();
+            }
+            return View(automovil);
+        }
 
 
     }
