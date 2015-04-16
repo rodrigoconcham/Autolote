@@ -1,66 +1,13 @@
 ﻿
-@model autolote.Models.Automovil
+
 
 @{
 	ViewBag.Title ="Home Page";
 
 }
 
-@section featured {
-  <section class="featured">
-     <div class ="content-wrapper">
-        <hgroup class="title">
-           <h1>Buscar</h1>
-        </hgroup>
-        @Html.Partial("_FiltrosdeBusqueda")
-      </div>
-  </section>
-  }
 
-  <h3>@ViewBag.Mensaje</h3>
-<table>
-  <tr>
-    @{
-       for(int i=0; i <10; i+=2)
-       {
-        <td>
-          <ol class="round">
-           @{
-             foreach(var Automovil in Model.Skip(i).Take(2))
-
-             {
-
-             <li>
-
-                <h5> @Automovil.Modelo.Marcas.Descripcion
-                <br />
-                 @Automovil.Modelo.Descripcion
-                 -
-                 @Automovil.Anio
-                </h5>          
-                @if (Automovil.AutomovilImagenes != null && Automovil.AutoMovilImagenes.Any())
-                {
-                <a href="@Url.Action("Detalle", "Automovil", new {id = automovil.Id})">
-                 <img src="@Url.Content(Automovil.AutomovilImagenes.First().UrlImagenMiniatura)" style="border:none"/>
-                </a> 
-                 }
-               </li>
-
-             }
-
-          }
-         </ol>
-        </td>
-
-
-       }
-
-   }
-
-
- </tr>
- </table>
-
+  
 
 
 

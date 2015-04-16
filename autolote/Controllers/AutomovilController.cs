@@ -10,6 +10,8 @@ using autolote.Helper;
 
 namespace autolote.Controllers
 {
+
+[Authorize(Roles="Admin")]
     public class AutomovilController : Controller
     {
         private DBContext db = new DBContext();
