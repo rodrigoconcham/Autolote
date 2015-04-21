@@ -132,9 +132,10 @@ new
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/Content/themes/base/css")
+    @Styles.Render("~/Content/themes/base/css")
+    @Scripts.Render("~/bundles/automovil")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryyui")
 
-<script src="~/Scripts/jquery-1.8.2.min.js"></script>
-<script src="~/Scripts/Autolote-MarcasModelos.js"></script>
-<script src="~/Scripts/Autolote-DatePicker.js"></script>
-<script src="~/Scripts/Autolote-Imagenes.js"></script>
+    }
+

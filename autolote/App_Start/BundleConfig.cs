@@ -8,6 +8,15 @@ namespace autolote
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
+
+            bundles.Add(new ScriptBundle("~/bundles/automovil").Include(
+                        "~/Scripts/jquery-1.8.2.min.js",
+                        "~/Scripts/Autolote-Tipos.js",
+                        "~/Scripts/Autolote-MarcasModelos.js",
+                        "~/Scripts/Autolote-Imagenes.js",
+                        "~/Scripts/Autolote-DatePicker.js"
+                        ));
+            
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 

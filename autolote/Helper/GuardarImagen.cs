@@ -44,7 +44,7 @@ namespace autolote.Helper
           {
               urlImagen += "~/content/imagenes/Miniatura/" + FileName + ".jpg";
               maxSideSize = 80;
-              savePath = imagesPath + "Mediana\\" + FileName + ".jpg";
+              savePath = imagesPath + "Miniatura\\" + FileName + ".jpg";
            
           }
 

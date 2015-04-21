@@ -12,7 +12,12 @@
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+                    
+
+                <a href ="@Url.Action("Index","Home")" id ="imglogo">
+                <img src="@Url.Content("~/Content/themes/base/images/Autolote.png")" alt="Inicio"  id ="imglogo" />
+
+
                 </div>
                 <div class="float-right">
                     <section id="login">
@@ -24,9 +29,9 @@
                             <li>@Html.ActionLink("About", "About", "Home")</li>
                             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                             
-                            @if(User.IsInRole("admin")){
+
                             <li>@Html.ActionLink("Administracion", "Administracion", "Home")</li>
-                            }
+                          
                         </ul>
                     </nav>
                 </div>

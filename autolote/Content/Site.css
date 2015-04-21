@@ -46,6 +46,25 @@ mark {
     float: left;
 }
 
+
+#alogo, #imglogo {
+    position:absolute;
+    border:none;
+    float: right;
+    margin-top:-10px;
+
+}
+
+#Buscar{
+color: #FFFFFF;
+}
+
+#TablaBusqueda select{
+   width:250px; 
+}
+
+
+
 .float-right {
     float: right;
 }
