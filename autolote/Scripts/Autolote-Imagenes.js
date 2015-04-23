@@ -6,32 +6,28 @@
      });
 
 return false;
-
-
+    
 });
 
-$("a.deleteRow").live("click", function () {
+$("a.deleteRow").live('click', function () {
     var id = $(this)[0].id;
     $(this).parents("div.editorRow:first").remove();
 
     var gui = GetRandomGUI();
     var htm = '<div class="editorRow">';
     htm += '<input type ="hidden" autoComplete ="off" name ="AutomovilImagenes.index" value ="' + gui +'"/>';
-    htm += '<input type ="hidden" autoComplete ="off" name ="AutomovilImagenes[' + gui + '].Id" value ="' + id+  '"/>';
+    htm += '<input type ="hidden" autoComplete ="off" name ="AutomovilImagenes[' + gui + '].Id" value ="' + id +  '"/>';
     htm += '<input type ="hidden" autoComplete ="off" name ="AutomovilImagenes[' + gui + '].ImagenEliminada" value ="true"/></div>';
     $('#divAutomovilImagenes').append(htm);
 
     return false;
 });
 
-$("#add").live("click", function () {
-    var id = $(this)[0].id;
-    $(this).parents("div.editorRow:first").remove();
-
+$("#add").live('click', function () {
     var gui = GetRandomGUI();
     var htm = '<div class="editorRow">';
     htm += '<input type ="hidden" autoComplete ="off" name ="AutomovilImagenes.index" value ="' + gui + '"/>';
-    htm += '<Imagen: <input type ="file" name ="AutomovilImagenes[' + gui + '].imagenSubida" value ="true"/></div>';
+    htm += 'Imagen: <input type ="file" name ="AutomovilImagenes[' + gui + '].ImagenSubida" value ="true"/>';
     htm += '<a href ="#" class="deleteRow">Eliminar</a></div>';
     $('#divAutomovilImagenes').append(htm);
 

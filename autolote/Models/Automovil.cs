@@ -25,8 +25,9 @@ namespace autolote.Controllers
         public string Color { get; set; }
         [Display(Name = "Fecha Publicacion")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime FechaPublicacion { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+  
+         public DateTime FechaPublicacion { get; set; }
         public string Email { get; set; }
 
         public List<AutomovilImagenes> AutomovilImagenes { get; set; }

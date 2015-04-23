@@ -28,7 +28,7 @@ namespace autolote.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+          /*  WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
 
             var roles = (SimpleRoleProvider)Roles.Provider;
             var membership = (SimpleMembershipProvider)Membership.Provider;
@@ -50,7 +50,7 @@ namespace autolote.Migrations
             {
 
                 roles.AddUsersToRoles(new[] { "billy" }, new[] { "admin" });
-            }
+            }*/
 
             
 

@@ -54,7 +54,8 @@ namespace autolote.Controllers
             var automovil = new Automovil()
 
             {
-                FechaPublicacion = DateTime.Now
+                FechaPublicacion =  DateTime.Now
+
 
             };
 
