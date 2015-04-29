@@ -28,18 +28,18 @@ namespace autolote.Controllers
             ViewBag.Mensaje = "Ultimos 10 automoviles";
 
 
-            var automovilImagenes = (from a in db.Automovils
-               .Include("Modelo")
-               .Include("Modelo.Marcas")
-               .Include("tipos")
-               .Include("AutomovilImagenes")
-                                     where a.AutomovilImagenes.Any()
-                                     orderby a.FechaPublicacion descending
-                                     select a).Take(10);
+            //var automovilImagenes = (from a in db.Automovils
+            //   .Include("Modelo")
+            //   .Include("Modelo.Marcas")
+            //   .Include("tipos")
+            //   .Include("AutomovilImagenes")
+            //                         where a.AutomovilImagenes.Any()
+            //                         orderby a.FechaPublicacion descending
+            //                         select a).Take(10);
 
-            return View(automovilImagenes);
+            //return View(automovilImagenes);
 
-            
+            return View();
           
         }
 
@@ -61,17 +61,17 @@ namespace autolote.Controllers
 
             if (TiposId !=0)
             {
-                autMoviles = autMoviles.Where(r => r.TiposId == TiposId);
+                autMoviles = autMoviles.Where(r => r.TipoId == TiposId);
              }
           
             if (MarcasId !=0)
             {
-                autMoviles = autMoviles.Where(r => r.Modelo.ModeloId == MarcasId);
+                autMoviles = autMoviles.Where(r => r.Modelo.ModelosId == MarcasId);
              }
 
             if (ModelosId !=0)
             {
-               autMoviles = autMoviles.Where(r => r.ModeloId == ModelosId); 
+               autMoviles = autMoviles.Where(r => r.ModelosId == ModelosId); 
             }
 
             autMoviles = autMoviles.Where(r => r.Anio >= AnioInicio && r.Anio <= AnioFin);

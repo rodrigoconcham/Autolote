@@ -4,8 +4,6 @@ namespace autolote.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
-    using System.Web.Security;
-    using WebMatrix.WebData;
 
     internal sealed class Configuration : DbMigrationsConfiguration<autolote.Models.DBContext>
     {
@@ -28,32 +26,6 @@ namespace autolote.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-          /*  WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
-
-            var roles = (SimpleRoleProvider)Roles.Provider;
-            var membership = (SimpleMembershipProvider)Membership.Provider;
-
-            if (!roles.RoleExists("Admin"))
-            {
-                roles.CreateRole("Admin");
-
-            }
-
-            if (Membership.GetUser("billy", false) ==null)
-            {
-
-                membership.CreateUserAndAccount("billy", "cursosdecomputacion");
-
-            }
-
-            if (!roles.GetRolesForUser("billy").Contains("admin"))
-            {
-
-                roles.AddUsersToRoles(new[] { "billy" }, new[] { "admin" });
-            }*/
-
-            
-
         }
     }
 }

@@ -139,7 +139,7 @@ namespace autolote.Controllers
                             select new
 
                             {
-                                 Id = m.ModeloId,
+                                 Id = m.ModelosId,
                                  Modelo = m.Descripcion,
                                  selected = false
                     

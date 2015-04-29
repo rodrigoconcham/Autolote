@@ -77,7 +77,7 @@ namespace autolote.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ModeloId = new SelectList(db.Modelos, "ModeloId", "Descripcion", automovil.ModeloId);
+            ViewBag.ModeloId = new SelectList(db.Modelos, "ModeloId", "Descripcion", automovil.ModelosId);
             return View(automovil);
         }
 
@@ -197,7 +197,7 @@ namespace autolote.Controllers
             {
                 var query = (from t in db.Tipos
                              join a in db.Automovils.Where(r => r.Id == id)
-                             on t.TipoId equals a.TiposId  into joined
+                             on t.TipoId equals a.TipoId  into joined
                              from a in joined.DefaultIfEmpty()
                              select new
 
@@ -254,12 +254,12 @@ namespace autolote.Controllers
 
                 var query = (from m in db.Modelos.Where(r => r.MarcaId == marcaId)
                              join a in db.Automovils.Where(r => r.Id == id)
-                             on m.ModeloId equals a.Modelo.ModeloId into joined
+                             on m.ModelosId equals a.Modelo.ModelosId into joined
                              from a in joined.DefaultIfEmpty()
                              select new
 
                              {
-                                 Id = m.ModeloId,
+                                 Id = m.ModelosId,
                                  Modelo = m.Descripcion,
                                  selected = a != null
 

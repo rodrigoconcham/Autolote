@@ -12,10 +12,10 @@ namespace autolote.Controllers
         [Key]
         public int Id { get; set; }
         [Required]
-        public int ModeloId { get; set; }
+        public int ModelosId { get; set; }
         public Modelos Modelo { get; set; }
         [Required]
-        public int TiposId { get; set; }
+        public int TipoId { get; set; }
         public Tipos tipos { get; set; }
         [Display(Name ="Tiene AC")]
         public bool TieneAireAcondicionado { get; set; }

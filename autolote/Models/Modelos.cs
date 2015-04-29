@@ -9,7 +9,7 @@ namespace autolote.Models
     public class Modelos
     {
         [Key]
-        public int ModeloId { get; set; }
+        public int ModelosId { get; set; }
          [Required(ErrorMessage = "Ingrese la descripción del modelo")]
          [Display(Name = "Modelo")] 
         public string Descripcion { get; set; }
