@@ -26,6 +26,7 @@ namespace autolote.Controllers
         [Display(Name = "Fecha Publicacion")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+       // [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
   
          public DateTime FechaPublicacion { get; set; }
         public string Email { get; set; }

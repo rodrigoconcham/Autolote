@@ -22,6 +22,7 @@ namespace autolote.Controllers
         public ActionResult Index()
         {
 
+
             return View(db.Automovils
                 .Include("Modelo")
                 .Include("Modelo.Marcas")
@@ -71,7 +72,26 @@ namespace autolote.Controllers
         public ActionResult Create(Automovil automovil)
         {
             if (ModelState.IsValid)
+
             {
+
+                 if (automovil.AutomovilImagenes !=  null && automovil.AutomovilImagenes.Any())
+
+                 {
+                   var guardarImagen = new GuardarImagen();
+          
+                    foreach (var imagen in automovil.AutomovilImagenes)
+
+                     {
+                     string  fileName =Guid.NewGuid().ToString();
+
+                      imagen.UrlImagenMiniatura=  guardarImagen.ResizeAndSave(fileName,imagen.ImagenSubida.InputStream , Tamanos.Miniatura, false);
+                      imagen.UrlImagenMediana = guardarImagen.ResizeAndSave(fileName, imagen.ImagenSubida.InputStream, Tamanos.Miniatura, false);
+                         
+                       }
+                   }
+
+                         
                 db.Automovils.Add(automovil);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -124,8 +144,8 @@ namespace autolote.Controllers
                       string fileName = Guid.NewGuid().ToString();
 
 
-                      imagen.UrlImagenMiniatura= new  GuardarImagen().ResizeAndSave(fileName,null , Tamanos.Miniatura, false);
-                      imagen.UrlImagenMediana =  new  GuardarImagen().ResizeAndSave(fileName,null, Tamanos.Miniatura, false);
+                      imagen.UrlImagenMiniatura = new GuardarImagen().ResizeAndSave(fileName, imagen.ImagenSubida.InputStream, Tamanos.Miniatura, false);
+                      imagen.UrlImagenMediana = new GuardarImagen().ResizeAndSave(fileName, imagen.ImagenSubida.InputStream, Tamanos.Miniatura, false);
                          
 
                       automovilOriginal.AutomovilImagenes.Add(new AutomovilImagenes()
