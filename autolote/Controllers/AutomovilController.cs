@@ -101,9 +101,42 @@ namespace autolote.Controllers
             return View(automovil);
         }
 
-        //
-        // GET: /Automovil/Edit/5
 
+
+        //GET : /Automovil/Edit/5
+
+         public ActionResult Edit(int id =0)
+        {
+
+             Automovil automovil = db.Automovils
+                .Include("Modelo")
+                .Include("Modelo.Marcas")
+                .Include("tipos")
+                .Include("AutomovilImagenes")
+                .FirstOrDefault(r => r.Id == id);
+
+             if (automovil ==null)
+             {
+
+                 return HttpNotFound();
+
+             }
+
+
+             return View(automovil);
+
+        }
+
+
+
+
+
+
+
+
+        // POST: /Automovil/Edit/5
+
+        [HttpPost]
         public ActionResult Edit(Automovil automovil)
 
         {
@@ -126,7 +159,7 @@ namespace autolote.Controllers
             {
                 foreach (var imagen in automovil.AutomovilImagenes)
                 {
-
+                     
                   if (imagen.ImagenEliminada)
 
                   {
