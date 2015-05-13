@@ -26,7 +26,7 @@ namespace autolote.Controllers
             return View(db.Automovils
                 .Include("Modelo")
                 .Include("Modelo.Marcas")
-                .Include("tipos")
+                .Include("Tipo")
                 .Include("AutomovilImagenes")
                 .ToList());
 
@@ -111,7 +111,7 @@ namespace autolote.Controllers
              Automovil automovil = db.Automovils
                 .Include("Modelo")
                 .Include("Modelo.Marcas")
-                .Include("tipos")
+                .Include("Tipo")
                 .Include("AutomovilImagenes")
                 .FirstOrDefault(r => r.Id == id);
 
@@ -146,7 +146,7 @@ namespace autolote.Controllers
             var automovilOriginal = db.Automovils
             .Include("Modelo")
             .Include("Modelo.Marcas")
-            .Include("tipos")
+            .Include("Tipo")
             .Include("AutomovilImagenes")
             .FirstOrDefault(r => r.Id == automovil.Id);
 
@@ -331,11 +331,11 @@ namespace autolote.Controllers
         {
 
 
-            var automovil = db.Automovils
-           // AutoMovil automovil = db.Automovils
+      
+            Automovil automovil = db.Automovils
             .Include("Modelo")
             .Include("Modelo.Marcas")
-            .Include("tipos")
+            .Include("Tipo")
             .Include("AutomovilImagenes")
             .FirstOrDefault(r => r.Id == id);
 

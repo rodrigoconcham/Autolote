@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace autolote.Controllers
+namespace autolote.Models
 {
     public class Automovil
     {
@@ -16,7 +16,7 @@ namespace autolote.Controllers
         public Modelos Modelo { get; set; }
         [Required]
         public int TipoId { get; set; }
-        public Tipos tipos { get; set; }
+        public Tipos Tipo { get; set; }
         [Display(Name ="Tiene AC")]
         public bool TieneAireAcondicionado { get; set; }
         public string Comentarios { get; set; }
@@ -32,5 +32,8 @@ namespace autolote.Controllers
         public string Email { get; set; }
 
         public List<AutomovilImagenes> AutomovilImagenes { get; set; }
+
+       
+     
     }
 }

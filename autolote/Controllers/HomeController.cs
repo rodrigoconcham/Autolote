@@ -28,18 +28,18 @@ namespace autolote.Controllers
             ViewBag.Mensaje = "Ultimos 10 automoviles";
 
 
-            //var automovilImagenes = (from a in db.Automovils
-            //   .Include("Modelo")
-            //   .Include("Modelo.Marcas")
-            //   .Include("tipos")
-            //   .Include("AutomovilImagenes")
-            //                         where a.AutomovilImagenes.Any()
-            //                         orderby a.FechaPublicacion descending
-            //                         select a).Take(10);
+            var automovilImagenes = (from a in db.Automovils
+               .Include("Modelo")
+               .Include("Modelo.Marcas")
+               .Include("Tipo")
+              .Include("AutomovilImagenes")
+                                     where a.AutomovilImagenes.Any()
+                                    orderby a.FechaPublicacion descending
+                                    select a).Take(10);
 
-            //return View(automovilImagenes);
+            return View(automovilImagenes);
 
-            return View();
+      
           
         }
 
@@ -56,7 +56,7 @@ namespace autolote.Controllers
             var autMoviles = db.Automovils
             .Include("Modelo")
             .Include("Modelo.Marcas")
-            .Include("tipos")
+            .Include("Tipo")
             .Include("AutomovilImagenes").AsQueryable();
 
             if (TiposId !=0)

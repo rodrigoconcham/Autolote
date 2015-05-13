@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace autolote.Controllers
+namespace autolote.Models
 {
      public class AutomovilImagenes
     {
