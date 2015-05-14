@@ -1,0 +1,109 @@
+﻿@model autolote.Models.Automovil
+
+@{
+	
+ViewBag.Title = Model.Modelo.Marcas.Descripcion + "|" + Model.Modelo.Descripcion +	"|" + Model.Anio + "|" + Model.Id;
+}
+
+<h2>Detalle </h2>
+
+
+<fieldset>
+  <legend>AutoMovil</legend>
+
+
+@if (Model.AutomovilImagenes != null)
+
+{
+	
+  foreach (var imagen in Model.AutomovilImagenes)
+
+  {
+   <div class="display-field">
+     <img src="@Url.Content(imagen.UrlImagenMediana)" alt="@imagen.Id" />
+   </div>
+
+
+  }
+
+
+}
+
+<table style ="border-collapse":separate;border-spacing:"10px">
+  <tr>
+      <th>
+          @Html.DisplayNameFor(model => model.Tipo.Descripcion)
+      </th>
+      <td>
+          @Html.DisplayFor(model => model.Tipo.Descripcion)
+      </td>
+  </tr>
+  <tr>
+      <th>
+          @Html.DisplayNameFor(model => model.Modelo.Descripcion)
+      </th>
+      <td>
+          @Html.DisplayFor(model => model.Modelo.Descripcion)
+      </td>
+  </tr>
+  <tr>
+      <th>
+          @Html.DisplayNameFor(model => model.Modelo.Marcas.Descripcion)
+      </th>
+      <td>
+          @Html.DisplayFor(model => model.Modelo.Marcas.Descripcion)
+      </td>
+  </tr>
+
+ <tr>
+      <th>
+          @Html.DisplayNameFor(model => model.Anio)
+      </th>
+      <td>
+          @Html.DisplayFor(model => model.Anio)
+     </td>
+  </tr>
+
+  <tr>
+      <th>
+          @Html.DisplayNameFor(model => model.Color)
+      </th>
+      <td>
+          @Html.DisplayFor(model => model.Color)
+     </td>
+  </tr>
+
+  <tr>
+      <th>
+          @Html.DisplayNameFor(model => model.Email)
+      </th>
+      <td>
+          @Html.DisplayFor(model => model.Email)
+     </td>
+  </tr>
+
+  <tr>
+      <th>
+          @Html.DisplayNameFor(model => model.TieneAireAcondicionado)
+      </th>
+      <td>
+          @Html.DisplayFor(model => model.TieneAireAcondicionado)
+     </td>
+  </tr>
+
+  <tr>
+      <th>
+          @Html.DisplayNameFor(model => model.Comentarios)
+      </th>
+      <td>
+          @Html.DisplayFor(model => model.Comentarios)
+     </td>
+  </tr>
+
+  </table>
+
+  </fieldset>
+
+ <p>
+   <a href ="javascript: history.go(-1)"> Regresar </a>
+  </p>

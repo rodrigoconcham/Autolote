@@ -1,11 +1,13 @@
-﻿@model IEnumerable<autolote.Models.Automovil>
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<autolote.Models.Automovil>
 
 @{
 	ViewBag.Title ="Home Page";
 
 }
 
-
+<link href ="Content/PagedList.css" rel="stylesheet" />
 
 @section featured {
   <section class="featured">
@@ -19,6 +21,15 @@
   }
 
   <h3>@ViewBag.Mensaje</h3>
+
+
+<div class="pagedList">
+  @Html.PagedListPager(Model, page => Url.Action("Index", new { page }) ,
+  PagedListRenderOptions.MinimalWithPageCountText)
+</div>
+
+
+
 <table>
   <tr>
     @{
@@ -62,6 +73,10 @@
  </tr>
  </table>
 
+<div class="pagedList">
+  @Html.PagedListPager(Model, page => Url.Action("Index", new { page }) ,
+  PagedListRenderOptions.MinimalWithPageCountText)
+</div>
 
 
 

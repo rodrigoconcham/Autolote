@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+
 
 namespace autolote.Controllers
 {
@@ -22,7 +24,7 @@ namespace autolote.Controllers
         
         
         
-        public ActionResult Index()
+        public ActionResult Index(int page =1)
         {
 
             ViewBag.Mensaje = "Ultimos 10 automoviles";
@@ -32,10 +34,10 @@ namespace autolote.Controllers
                .Include("Modelo")
                .Include("Modelo.Marcas")
                .Include("Tipo")
-              .Include("AutomovilImagenes")
+               .Include("AutomovilImagenes")
                                      where a.AutomovilImagenes.Any()
-                                    orderby a.FechaPublicacion descending
-                                    select a).Take(10);
+                                     orderby a.FechaPublicacion descending
+                                     select a).ToPagedList(page, 5);
 
             return View(automovilImagenes);
 
